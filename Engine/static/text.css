@@ -1,0 +1,118 @@
+.loader {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100vw;
+    position: absolute;
+}
+
+#loading_animation {
+    height: 20em;
+    width: 20em;
+    font-size: 2em;
+    position: relative;
+}
+
+.text-body {
+    font-size: 10em;
+    stroke-width: 1;
+    font-weight: 400;
+    position: relative;
+    font-family: 'Love Light', cursive;
+}
+
+.k {
+    transform: rotateX(180deg);
+    transform: rotateY(180deg);
+    transform-origin: center center;
+    position: relative;
+    animation: 3s 2s 3 alternate both writeK;
+    stroke: rgba(0, 0, 0, 0);
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.6), 2px 2px rgba(65, 64, 64, 0.411), 3px 3px rgba(105, 103, 103, 0.356), 4px 4px rgba(114, 113, 113, 0.349), 5px 5px rgba(155, 154, 154, 0.473);
+}
+
+.P {
+    position: relative;
+    stroke: rgba(0, 0, 0, 0);
+    animation: 3s 2s 3 alternate both writeP;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.6), 2px 2px rgba(65, 64, 64, 0.411), 3px 3px rgba(105, 103, 103, 0.356), 4px 4px rgba(114, 113, 113, 0.349), 5px 5px rgba(155, 154, 154, 0.473);
+}
+
+.T {
+    position: relative;
+    text-shadow: 1px 1px #ffc700, 2px 2px #ffc800d2, 3px 3px #ffc800a1, 4px 4px #ffc80063, 5px 5px #ffc80013;
+    animation: 3s 2s 3 alternate both writeT;
+}
+
+@keyframes writeT {
+    0% {
+        fill: transparent;
+        stroke: #ffc700;
+        stroke-width: 2;
+        stroke-dashoffset: 0;
+        stroke-dasharray: 0 30%;
+    }
+    50% {
+        fill: transparent;
+        stroke: #ffc700;
+        stroke-width: 2;
+    }
+    80%,
+    100% {
+        stroke: transparent;
+        fill: #ffc700;
+        stroke-width: 0;
+        stroke-dashoffset: 100%;
+        stroke-dasharray: 40% 0;
+    }
+}
+
+@keyframes writeK {
+    0% {
+        fill: transparent;
+        stroke: rgba(0, 0, 0, 0.6);
+        stroke-width: 2;
+        stroke-dashoffset: 0;
+        stroke-dasharray: 0 30%;
+    }
+    50% {
+        fill: transparent;
+        stroke: rgba(0, 0, 0, 0.6);
+        stroke-width: 2;
+    }
+    80%,
+    100% {
+        stroke: transparent;
+        fill: rgba(0, 0, 0, 0.6);
+        stroke-width: 0;
+        stroke-dashoffset: 100%;
+        stroke-dasharray: 40% 0;
+    }
+}
+
+@keyframes writeP {
+    0% {
+        fill: transparent;
+        stroke: rgba(0, 0, 0, 0.6);
+        stroke-width: 2;
+        stroke-dashoffset: 0;
+        stroke-dasharray: 0 30%;
+    }
+    50% {
+        fill: transparent;
+        stroke: rgba(0, 0, 0, 0.6);
+        stroke-width: 2;
+    }
+    80%,
+    100% {
+        stroke: transparent;
+        fill: rgba(0, 0, 0, 0.6);
+        stroke-width: 0;
+        stroke-dashoffset: 100%;
+        stroke-dasharray: 40% 0;
+        box-shadow: 20px 20px #411610;
+    }
+}

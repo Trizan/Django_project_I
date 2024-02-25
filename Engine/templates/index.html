@@ -1,0 +1,2472 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Site made with Mobirise AI Website Builder v0.01, https://ai.mobirise.com -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise AI v0.01, ai.mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="{% static 'assets/images/logo5.png' %} " type="image/x-icon">
+    <meta name="description" content="A high school team developing a Django-based search engine using web scraping techniques to display images for typed keywords.">
+
+    
+    <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons2/mobirise2.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/parallax/jarallax.css' %} ">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/socicon/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/animatecss/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap"></noscript>
+    <link rel="preload" as="style" href="{% static 'assets/mobirise/css/additional.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/mobirise/css/additional.css' %}" type="text/css">
+
+    {% block linking_part %}
+    <title>ImageZ</title>
+    <link rel="stylesheet" href="{% static 'text.css' %}?{% now 'U' %}">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Love+Light&display=swap" rel="stylesheet">
+    {% endblock linking_part %}
+        
+    <script>
+        // Add the class to the body element initially
+        document.addEventListener("DOMContentLoaded", function() {
+          document.body.classList.add('loading_animation_running');
+    
+          // After 11 seconds, remove the class from the body element
+          setTimeout(function() {
+            document.body.classList.remove('loading_animation_running');
+          }, 10000); // 11 seconds in milliseconds
+        });
+    </script>
+
+    <style>
+         :root {
+            --background: #FEECEC;
+            --dominant-color: #F94144;
+            --primary-color: #F9C74F;
+            --secondary-color: #43AA8B;
+            --success-color: #3ADB90;
+            --danger-color: #DD3848;
+            --warning-color: #FFC516;
+            --info-color: #22D0F3;
+            --background-text: #000000;
+            --dominant-text: #FFFFFF;
+            --primary-text: #000000;
+            --secondary-text: #FFFFFF;
+            --success-text: #000000;
+            --danger-text: #FFFFFF;
+            --warning-text: #000000;
+            --info-text: #000000;
+        }
+    </style>
+</head>
+
+<body>  
+    <style>
+        .navbar.navbar-dropdown.navbar-fixed-top.navbar-expand-lg{
+            transform-origin: center;
+            animation: 1s 10s linear both nav_bar_animation;
+        }
+        @keyframes nav_bar_animation {
+            0%{
+                transform: rotateX(90deg);
+            }
+
+            100%{
+                transform: rotateX(0);
+            }
+        }
+        
+        .cid-u4QjkI1zdy {
+            z-index: 1000;
+            width: 100%;
+            position: relative;
+        }
+        
+        .cid-u4QjkI1zdy .dropdown-item:before {
+            font-family: Moririse2 !important;
+            content: "\e966";
+            display: inline-block;
+            width: 0;
+            position: absolute;
+            left: 1rem;
+            top: 0.5rem;
+            margin-right: 0.5rem;
+            line-height: 1;
+            font-size: inherit;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            transform: scale(0, 1);
+            transition: all 0.25s ease-in-out;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI1zdy .navbar-toggler {
+                transform: scale(0.8);
+            }
+        }
+        
+        .cid-u4QjkI1zdy .navbar-brand {
+            flex-shrink: 0;
+            align-items: center;
+            margin-right: 0;
+            padding: 10px 0;
+            transition: all 0.3s;
+            word-break: break-word;
+            z-index: 1;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-brand img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-brand .navbar-caption {
+            line-height: inherit !important;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-brand .navbar-logo a {
+            outline: none;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-nav {
+            margin: auto;
+            margin-left: 0;
+            margin-left: auto;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-nav .nav-item {
+            padding: 0 !important;
+            transition: 0.3s all !important;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-nav .nav-item .nav-link {
+            padding: 16px !important;
+            margin: 0 !important;
+            border-radius: 1rem !important;
+            transition: 0.3s all !important;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-nav .nav-item .nav-link:hover {
+            background-color: rgba(27, 31, 10, 0.06);
+        }
+        
+        .cid-u4QjkI1zdy .navbar-nav .open .nav-link::after {
+            transform: rotate(180deg);
+        }
+        
+        @media (min-width: 992px) {
+            .cid-u4QjkI1zdy .navbar-nav .open .nav-link::before {
+                content: "";
+                width: 100%;
+                height: 20px;
+                top: 100%;
+                background: transparent;
+                position: absolute;
+            }
+        }
+        
+        .cid-u4QjkI1zdy .navbar-nav .dropdown-item {
+            padding: 12px !important;
+            border-radius: 0.5rem !important;
+            margin: 0 8px !important;
+            transition: 0.3s all !important;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-nav .dropdown-item:hover {
+            background-color: rgba(27, 31, 10, 0.06);
+        }
+        
+        @media (min-width: 992px) {
+            .cid-u4QjkI1zdy .navbar-nav {
+                padding-left: 1.5rem;
+            }
+        }
+        
+        .cid-u4QjkI1zdy .nav-link {
+            width: fit-content;
+            position: relative;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-logo {
+            margin: 0 !important;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI1zdy .navbar-logo {
+                padding-left: 0;
+            }
+        }
+        
+        .cid-u4QjkI1zdy .navbar-caption {
+            padding-left: 1rem;
+            padding-right: 0.5rem;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI1zdy .nav-dropdown {
+                padding-bottom: 0.5rem;
+            }
+        }
+        
+        .cid-u4QjkI1zdy .nav-dropdown .link.dropdown-toggle::after {
+            margin-left: 0.5rem;
+            margin-top: 0.2rem;
+            transition: 0.3s all;
+        }
+        
+        .cid-u4QjkI1zdy .container {
+            display: flex;
+            height: 90px;
+            padding: 0.5rem 0.6rem;
+            flex-wrap: nowrap;
+            background: rgba(255, 255, 255, 0.8) !important;
+            left: 0;
+            right: 0;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: flex-end;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            border-radius: 100vw;
+            margin-top: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 30px 60px 0 rgba(27, 31, 10, 0.08);
+        }
+        
+        @media (max-width: 992px) {
+            .cid-u4QjkI1zdy .container {
+                padding-right: 2rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI1zdy .container {
+                width: 95%;
+                height: 56px !important;
+                padding-right: 1rem;
+                margin-top: 0rem;
+            }
+        }
+        
+        .cid-u4QjkI1zdy .iconfont-wrapper {
+            color: #000000 !important;
+            font-size: 1.5rem;
+            padding-right: 0.5rem;
+        }
+        
+        .cid-u4QjkI1zdy .dropdown-menu {
+            flex-wrap: wrap;
+            flex-direction: column;
+            max-width: 100%;
+            padding: 12px 4px !important;
+            border-radius: 1.5rem;
+            transition: 0.3s all !important;
+            min-width: auto;
+            background: #ffffff;
+            background: rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        .cid-u4QjkI1zdy .nav-item:focus,
+        .cid-u4QjkI1zdy .nav-link:focus {
+            outline: none;
+        }
+        
+        .cid-u4QjkI1zdy .dropdown .dropdown-menu .dropdown-item {
+            width: auto;
+            transition: all 0.25s ease-in-out;
+        }
+        
+        .cid-u4QjkI1zdy .dropdown .dropdown-menu .dropdown-item::after {
+            right: 0.5rem;
+        }
+        
+        .cid-u4QjkI1zdy .dropdown .dropdown-menu .dropdown-item .mbr-iconfont {
+            margin-right: 0.5rem;
+            vertical-align: sub;
+        }
+        
+        .cid-u4QjkI1zdy .dropdown .dropdown-menu .dropdown-item .mbr-iconfont:before {
+            display: inline-block;
+            transform: scale(1, 1);
+            transition: all 0.25s ease-in-out;
+        }
+        
+        .cid-u4QjkI1zdy .collapsed .dropdown-menu .dropdown-item:before {
+            display: none;
+        }
+        
+        .cid-u4QjkI1zdy .collapsed .dropdown .dropdown-menu .dropdown-item {
+            padding: 0.235em 1.5em 0.235em 1.5em !important;
+            transition: none;
+            margin: 0 !important;
+        }
+        
+        .cid-u4QjkI1zdy .navbar {
+            min-height: 90px;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.opened {
+            transition: all 0.3s;
+        }
+        
+        .cid-u4QjkI1zdy .navbar .dropdown-item {
+            padding: 0.5rem 1.8rem;
+        }
+        
+        .cid-u4QjkI1zdy .navbar .navbar-logo img {
+            min-width: 6rem;
+            object-fit: cover;
+        }
+        
+        .cid-u4QjkI1zdy .navbar .navbar-collapse {
+            z-index: 1;
+            justify-content: flex-end;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.collapsed {
+            justify-content: center;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.collapsed .nav-item .nav-link::before {
+            display: none;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.collapsed.opened .dropdown-menu {
+            top: 0;
+        }
+        
+        @media (min-width: 992px) {
+            .cid-u4QjkI1zdy .navbar.collapsed.opened:not(.navbar-short) .navbar-collapse {
+                max-height: calc(98.5vh - 3rem);
+            }
+        }
+        
+        .cid-u4QjkI1zdy .navbar.collapsed .dropdown-menu .dropdown-submenu {
+            left: 0 !important;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.collapsed .dropdown-menu .dropdown-item:after {
+            right: auto;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.collapsed .dropdown-menu .dropdown-toggle[data-toggle="dropdown-submenu"]:after {
+            margin-left: 0.5rem;
+            margin-top: 0.2rem;
+            border-top: 0.35em solid;
+            border-right: 0.35em solid transparent;
+            border-left: 0.35em solid transparent;
+            border-bottom: 0;
+            top: 41%;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.collapsed ul.navbar-nav li {
+            margin: auto;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.collapsed .dropdown-menu .dropdown-item {
+            padding: 0.25rem 1.5rem;
+            text-align: center;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.collapsed .icons-menu {
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI1zdy .navbar {
+                min-height: 72px;
+            }
+            .cid-u4QjkI1zdy .navbar .navbar-logo img {
+                height: 2.5rem !important;
+                min-width: 2.5rem !important;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .cid-u4QjkI1zdy .navbar .nav-item .nav-link::before {
+                display: none;
+            }
+            .cid-u4QjkI1zdy .navbar.opened .dropdown-menu {
+                top: 0;
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown-menu .dropdown-submenu {
+                left: 0 !important;
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown-menu .dropdown-item:after {
+                right: auto;
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown-menu .dropdown-toggle[data-toggle="dropdown-submenu"]:after {
+                margin-left: 0.5rem;
+                margin-top: 0.2rem;
+                border-top: 0.35em solid;
+                border-right: 0.35em solid transparent;
+                border-left: 0.35em solid transparent;
+                border-bottom: 0;
+                top: 40%;
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown-menu .dropdown-item {
+                padding: 0.25rem 1.5rem !important;
+                text-align: center;
+            }
+            .cid-u4QjkI1zdy .navbar .navbar-brand {
+                flex-shrink: initial;
+                flex-basis: auto;
+                word-break: break-word;
+                padding-right: 10px;
+            }
+            .cid-u4QjkI1zdy .navbar .navbar-toggler {
+                flex-basis: auto;
+            }
+            .cid-u4QjkI1zdy .navbar .icons-menu {
+                padding-left: 0;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+        }
+        
+        .cid-u4QjkI1zdy .navbar.navbar-short .navbar-logo img {
+            height: 2rem;
+        }
+        
+        .cid-u4QjkI1zdy .dropdown-item.active,
+        .cid-u4QjkI1zdy .dropdown-item:active {
+            background-color: transparent;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-expand-lg .navbar-nav .nav-link {
+            padding: 0;
+        }
+        
+        .cid-u4QjkI1zdy .nav-dropdown .link.dropdown-toggle {
+            margin-right: 1.667em;
+        }
+        
+        .cid-u4QjkI1zdy .nav-dropdown .link.dropdown-toggle[aria-expanded="true"] {
+            margin-right: 0;
+            padding: 0.667em 1.667em;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.navbar-expand-lg .dropdown .dropdown-menu {
+            background: #ffffff;
+        }
+        
+        .cid-u4QjkI1zdy .navbar.navbar-expand-lg .dropdown .dropdown-menu .dropdown-submenu {
+            margin: 0;
+            left: 105%;
+            transform: none;
+            top: -12px;
+        }
+        
+        .cid-u4QjkI1zdy .navbar .dropdown.open>.dropdown-menu {
+            display: flex;
+        }
+        
+        .cid-u4QjkI1zdy ul.navbar-nav {
+            flex-wrap: wrap;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-buttons {
+            text-align: center;
+            min-width: 140px;
+        }
+        
+        @media (max-width: 992px) {
+            .cid-u4QjkI1zdy .navbar-buttons {
+                text-align: left;
+            }
+        }
+        
+        .cid-u4QjkI1zdy button.navbar-toggler {
+            outline: none;
+            width: 31px;
+            height: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            align-self: center;
+        }
+        
+        .cid-u4QjkI1zdy button.navbar-toggler .hamburger span {
+            position: absolute;
+            right: 0;
+            width: 30px;
+            height: 2px;
+            border-right: 5px;
+            background-color: #000000;
+        }
+        
+        .cid-u4QjkI1zdy button.navbar-toggler .hamburger span:nth-child(1) {
+            top: 0;
+            transition: all 0.2s;
+        }
+        
+        .cid-u4QjkI1zdy button.navbar-toggler .hamburger span:nth-child(2) {
+            top: 8px;
+            transition: all 0.15s;
+        }
+        
+        .cid-u4QjkI1zdy button.navbar-toggler .hamburger span:nth-child(3) {
+            top: 8px;
+            transition: all 0.15s;
+        }
+        
+        .cid-u4QjkI1zdy button.navbar-toggler .hamburger span:nth-child(4) {
+            top: 16px;
+            transition: all 0.2s;
+        }
+        
+        .cid-u4QjkI1zdy nav.opened .hamburger span:nth-child(1) {
+            top: 8px;
+            width: 0;
+            opacity: 0;
+            right: 50%;
+            transition: all 0.2s;
+        }
+        
+        .cid-u4QjkI1zdy nav.opened .hamburger span:nth-child(2) {
+            transform: rotate(45deg);
+            transition: all 0.25s;
+        }
+        
+        .cid-u4QjkI1zdy nav.opened .hamburger span:nth-child(3) {
+            transform: rotate(-45deg);
+            transition: all 0.25s;
+        }
+        
+        .cid-u4QjkI1zdy nav.opened .hamburger span:nth-child(4) {
+            top: 8px;
+            width: 0;
+            opacity: 0;
+            right: 50%;
+            transition: all 0.2s;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-dropdown {
+            padding: 0 1rem;
+        }
+        
+        .cid-u4QjkI1zdy a.nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cid-u4QjkI1zdy .icons-menu {
+            flex-wrap: nowrap;
+            display: flex;
+            justify-content: center;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.3rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 992px) {
+            .cid-u4QjkI1zdy .icons-menu {
+                justify-content: flex-start;
+                margin-bottom: 0.5rem;
+            }
+        }
+        
+        @media screen and (-ms-high-contrast: active),
+        (-ms-high-contrast: none) {
+            .cid-u4QjkI1zdy .navbar {
+                height: 70px;
+            }
+            .cid-u4QjkI1zdy .navbar.opened {
+                height: auto;
+            }
+            .cid-u4QjkI1zdy .nav-item .nav-link:hover::before {
+                width: 175%;
+                max-width: calc(100% + 2rem);
+                left: -1rem;
+            }
+        }
+        
+        .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu {
+            display: none;
+            width: max-content;
+            max-width: 500px !important;
+            transform: translateX(-50%);
+            top: calc(100% + 20px);
+            left: 50%;
+        }
+        
+        .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu .dropdown-item {
+            line-height: 1 !important;
+        }
+        
+        .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu .dropdown .dropdown-item {
+            align-items: center;
+            display: flex;
+            height: max-content !important;
+            min-height: max-content !important;
+        }
+        
+        .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu .dropdown .dropdown-item::after {
+            display: inline-block;
+            position: static;
+            margin-left: 0.5rem;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 0;
+            transition: 0.3s all;
+            transform: rotate(-90deg);
+        }
+        
+        .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu .dropdown.open .dropdown-item::after {
+            transform: rotate(0deg);
+        }
+        
+        .cid-u4QjkI1zdy .mbr-section-btn {
+            margin: -0.6rem -0.6rem;
+        }
+        
+        .cid-u4QjkI1zdy .navbar-toggler {
+            margin-left: 12px;
+            margin-right: 8px;
+            order: 1000;
+        }
+        
+        @media (max-width: 991px) {
+            .cid-u4QjkI1zdy .navbar-brand {
+                margin-right: auto;
+            }
+            .cid-u4QjkI1zdy .navbar-collapse {
+                z-index: -1 !important;
+                position: absolute;
+                top: 110%;
+                left: 0;
+                width: 100%;
+                padding: 1rem;
+                border-radius: 1.5rem;
+                background: #ffffff;
+                opacity: 1;
+                border-color: rgba(255, 255, 255, 0.8) !important;
+                background: rgba(255, 255, 255, 0.8) !important;
+                backdrop-filter: blur(8px);
+            }
+            .cid-u4QjkI1zdy .navbar-nav .nav-item .nav-link::after {
+                margin-left: 10px;
+            }
+            .cid-u4QjkI1zdy .navbar-nav .dropdown-item:hover {
+                background-color: rgba(27, 31, 10, 0.06);
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu {
+                max-width: 100% !important;
+                transform: translateX(0);
+                top: 10px;
+                left: 0;
+                padding: 8px !important;
+                border-radius: 1rem;
+                background-color: rgba(27, 31, 10, 0.04) !important;
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu .dropdown-item {
+                padding: 8px !important;
+                line-height: 1 !important;
+                margin-bottom: 4px !important;
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu .dropdown .dropdown-item {
+                align-items: center;
+                display: flex;
+                height: max-content !important;
+                min-height: max-content !important;
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu .dropdown .dropdown-item::after {
+                display: inline-block;
+                position: static;
+                margin-left: 0.5rem;
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 0;
+                transition: 0.3s all;
+                transform: rotate(0deg);
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu .dropdown.open .dropdown-item::after {
+                transform: rotate(180deg);
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown>.dropdown-menu .dropdown-submenu {
+                position: static;
+                width: 100%;
+                max-width: 100% !important;
+                transform: translateX(0) !important;
+                top: 0;
+                left: 0;
+                padding: 8px !important;
+                border-radius: 1rem;
+                background-color: rgba(27, 31, 10, 0.04) !important;
+            }
+            .cid-u4QjkI1zdy .navbar .dropdown.open>.dropdown-menu {
+                display: flex !important;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        
+        @media (max-width: 575px) {
+            .cid-u4QjkI1zdy .navbar-collapse {
+                padding: 1rem;
+            }
+        }
+
+    </style>
+    
+    <section class="menu menu2 cid-u4QjkI1zdy" once="menu" id="menu-5-u4QjkI1zdy">
+        <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+            <div class="container">
+                <div class="navbar-brand">
+                    <span class="navbar-logo">
+					<a href="/Home/">
+						<img src="{% static 'assets/images/logo1.png' %}" style="height: 4.3rem;">
+					</a>
+				</span>
+                    <span class="navbar-caption-wrap">
+          <a class="navbar-caption text-black display-4" href="/Home/">ImageZ</a>
+        </span>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                        <li class="nav-item">
+                            <a class="nav-link link text-black display-4" href="/Home/#hero-17-u4QjkI1ygq">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link text-black display-4" href="/Home/#testimonials-7-u4QjkI4bim" aria-expanded="false">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link text-black display-4" href="/Home/#contacts-11-u4QjkI6T9B">Contact</a>
+                        </li>
+                    </ul>
+                    
+                    {% block explore_btn_replace_woth_bar %}
+                    <div class="navbar-buttons mbr-section-btn">
+                        <a class="btn btn-primary display-4" href="#subscription-form-1-u4QjkI61I8">Explore</a>
+                    </div>
+                    {% endblock explore_btn_replace_woth_bar %}
+                </div>
+            </div>
+        </nav>
+    </section>
+
+{% block main_content_for_display %}
+    <style>
+        body.loading_animation_running{
+            overflow: hidden;
+        }
+        body.loading_animation_running .loader{
+            height: 100vh;
+        }
+        body.loading_animation_running section:not(menu.menu2.cid-u4QjkI1zdy){
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .loader {
+            animation: 0.5s 11s linear both display_animation_for_loader;
+            transform-origin: center;
+        }
+
+
+
+        @keyframes display_animation_for_content {
+            0% {
+                translate: -100%;
+                opacity: 0;
+            }
+            40% {
+                opacity: 0;
+            }
+            100% {
+                translate: 0;
+                opacity: 1;
+            }
+        }
+        @keyframes display_animation_for_loader {
+            from {
+                transform: rotate3D(0, 0, 0, 90deg);
+                visibility: visible;
+            }
+            to {
+                transform: rotate3D(1, 1, 0, 90deg);
+                visibility: hidden;
+            }
+        }
+
+    </style>
+    <div class="loader">
+        <svg viewBox="0 0 1000 600" id="loading_animation">
+            <text x="50%" y="50%" dx="-0.46em" dy="-0.18em" text-anchor="middle" class="text-body T">T</text>
+            <text x="50%" y="50%" dx="0.2em" text-anchor="middle" class="text-body k">K</text>
+            <text x="50%" y="50%" dx="0.3em" text-anchor="middle" class="text-body P">P</text>
+        </svg>
+    </div>
+    
+    <style>
+        .cid-u4QjkI1ygq {
+            display: flex;
+            background-image: url("{% static 'bg2.jpg' %}");
+        }
+        
+        .cid-u4QjkI1ygq .mbr-overlay {
+            background-color: #000000;
+            opacity: 0.5;
+        }
+        
+        @media (min-width: 768px) {
+            .cid-u4QjkI1ygq {
+                align-items: flex-end;
+            }
+            .cid-u4QjkI1ygq .row {
+                justify-content: center;
+            }
+            .cid-u4QjkI1ygq .content-wrap {
+                padding: 1rem 3rem;
+            }
+        }
+        
+        @media (max-width: 991px) and (min-width: 768px) {
+            .cid-u4QjkI1ygq .content-wrap {
+                min-width: 50%;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI1ygq {
+                -webkit-align-items: center;
+                align-items: flex-end;
+            }
+            .cid-u4QjkI1ygq .mbr-row {
+                -webkit-justify-content: center;
+                justify-content: center;
+            }
+            .cid-u4QjkI1ygq .content-wrap {
+                width: 100%;
+            }
+        }
+        
+        .cid-u4QjkI1ygq .mbr-section-title,
+        .cid-u4QjkI1ygq .mbr-section-subtitle {
+            text-align: center;
+        }
+        
+        .cid-u4QjkI1ygq .mbr-text,
+        .cid-u4QjkI1ygq .mbr-section-btn {
+            text-align: center;
+        }
+    </style>
+    <section class="header16 cid-u4QjkI1ygq mbr-fullscreen mbr-parallax-background" id="hero-17-u4QjkI1ygq">
+        <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="content-wrap col-12 col-md-10">
+                    <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1">
+                        <strong>ImageZ Search</strong>
+                    </h1>
+                    <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7">Unleash the Power of Visual Discovery with ImageZ - Your Ultimate Image Search Engine!</p>
+                    <div class="mbr-section-btn"><a class="btn btn-white-outline display-7" href="#contact-form-3-u4QjkI6o17">Get Started</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI25K7 {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: #ffffff;
+        }
+        
+        .cid-u4QjkI25K7 .mbr-fallback-image.disabled {
+            display: none;
+        }
+        
+        .cid-u4QjkI25K7 .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        
+        .cid-u4QjkI25K7 .row {
+            flex-direction: row-reverse;
+        }
+    </style>
+    <section class="image3 cid-u4QjkI25K7" id="image-2-u4QjkI25K7">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <h4 class="mbr-description mbr-fonts-style mb-3 align-center display-5">
+                        <strong>Discover Stunning Visuals Instantly</strong>
+                    </h4>
+                    <p class="mbr-description mbr-fonts-style mb-4 align-center display-7">
+                        Explore a World of Images with ImageZ Search
+                    </p>
+                    <div class="image-wrapper">
+                        <img class="w-100" src="{% static 'bg1.jpg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI2veL {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: transparent;
+        }
+        
+        .cid-u4QjkI2veL .mbr-fallback-image.disabled {
+            display: none;
+        }
+        
+        .cid-u4QjkI2veL .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI2veL .card-content-text {
+                padding: 0 1.5rem 1.5rem 1.5rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .cid-u4QjkI2veL .card-content-text {
+                padding: 0 2.25rem 2.25rem 2.25rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .cid-u4QjkI2veL .card-content-text {
+                padding: 1rem 4rem 4rem 4rem;
+            }
+        }
+        
+        .cid-u4QjkI2veL .card-wrapper {
+            background: #ffffff;
+        }
+        
+        .cid-u4QjkI2veL .mbr-text,
+        .cid-u4QjkI2veL .mbr-section-btn {
+            color: #000000;
+            text-align: left;
+        }
+        
+        .cid-u4QjkI2veL .card-title,
+        .cid-u4QjkI2veL .card-box {
+            text-align: left;
+            color: #000000;
+        }
+    </style>
+    <section class="article8 cid-u4QjkI2veL" id="about-us-8-u4QjkI2veL">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="card col-md-12 col-lg-10">
+                    <div class="card-wrapper">
+                        <div class="image-wrapper d-flex justify-content-center mb-4">
+                            <img src="{% static 'assets/images/photo-1502085671122-2d218cd434e6.jpeg' %}">
+                        </div>
+                        <div class="card-content-text">
+                            <h3 class="card-title mbr-fonts-style mbr-white mt-3 mb-4 display-2">
+                                <strong>Meet the Visionaries</strong>
+                            </h3>
+                            <div class="row card-box align-left">
+                                <div class="item features-without-image col-12">
+                                    <div class="item-wrapper">
+                                        <p class="mbr-text mbr-fonts-style display-7">Embark on a journey with our high school trio revolutionizing image search.</p>
+                                    </div>
+                                </div>
+                                <div class="item features-without-image col-12">
+                                    <div class="item-wrapper">
+                                        <p class="mbr-text mbr-fonts-style display-7">Driven by curiosity and powered by Django, we&#x27;re reshaping how you find visuals.</p>
+                                    </div>
+                                </div>
+                                <div class="item features-without-image col-12">
+                                    <div class="item-wrapper">
+                                        <p class="mbr-text mbr-fonts-style display-7">Join us in the quest for infinite visual exploration!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI2kNG {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: transparent;
+        }
+        
+        .cid-u4QjkI2kNG .mbr-fallback-image.disabled {
+            display: none;
+        }
+        
+        .cid-u4QjkI2kNG .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        
+        .cid-u4QjkI2kNG .mbr-text {
+            color: #000000;
+        }
+        
+        .cid-u4QjkI2kNG .mbr-section-subtitle {
+            color: #ffffff;
+            text-align: left;
+        }
+        
+        .cid-u4QjkI2kNG .main-button {
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI2kNG .main-button {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        .cid-u4QjkI2kNG .mbr-section-subtitle,
+        .cid-u4QjkI2kNG .main-button {
+            color: #000000;
+        }
+    </style>
+    <section class="image08 cid-u4QjkI2kNG" id="image-12-u4QjkI2kNG">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="col-12 col-md-12">
+                        <h5 class="mbr-section-title mbr-fonts-style mt-0 mb-4 display-2">
+                            <strong>Revolutionary Image Search</strong>
+                        </h5>
+                        <h6 class="mbr-section-subtitle mbr-fonts-style mt-0 mb-4 display-7">
+                            Experience the magic of web scraping as we bring your image searches to life with ImageZ!
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-lg-8 side-features">
+                    <div class="image-wrapper mb-4">
+                        <img class="w-100" src="{% static 'assets/images/ronaldo.jpg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI3OIm {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: transparent;
+        }
+        
+        .cid-u4QjkI3OIm .mbr-text {
+            color: #000000;
+        }
+        
+        .cid-u4QjkI3OIm .mbr-section-subtitle {
+            color: #000000;
+        }
+        
+        .cid-u4QjkI3OIm .mbr-section-title {
+            color: #000000;
+            text-align: center;
+        }
+        
+        .cid-u4QjkI3OIm .mbr-text,
+        .cid-u4QjkI3OIm .item .mbr-section-btn {
+            text-align: left;
+        }
+        
+        .cid-u4QjkI3OIm .item-wrapper {
+            background: #ffffff;
+            margin-bottom: 2rem;
+            padding: 2.25rem;
+        }
+        
+        @media (min-width: 992px) and (max-width: 1200px) {
+            .cid-u4QjkI3OIm .item-wrapper {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI3OIm .item-wrapper {
+                padding: 2rem 1.5rem;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+    <section class="list05 cid-u4QjkI3OIm" id="faq-3-u4QjkI3OIm">
+        <div class="container">
+            <div class="col-12 mb-5 content-head">
+                <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                    <strong>Curious Minds Ask</strong>
+                </h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <div class="item features-without-image col-12 active">
+                        <div class="item-wrapper">
+                            <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                                <strong>How does it work?</strong></h5>
+                            <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">
+                                Our Django-based search engine utilizes cutting-edge web scraping techniques to fetch and display images based on your typed keywords.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item features-without-image col-12">
+                        <div class="item-wrapper">
+                            <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                                <strong>Why choose us?</strong></h5>
+                            <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">
+                                As high school students, we bring fresh perspectives and innovative ideas to the world of image search engines.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item features-without-image col-12">
+                        <div class="item-wrapper">
+                            <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                                <strong>What sets us apart?</strong></h5>
+                            <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">
+                                We combine creativity with technology to deliver a unique and engaging search experience like no other.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item features-without-image col-12">
+                        <div class="item-wrapper">
+                            <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                                <strong>Who are we?</strong></h5>
+                            <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">
+                                We are a dynamic trio of high school students passionate about revolutionizing image search.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item features-without-image col-12">
+                        <div class="item-wrapper">
+                            <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                                <strong>Any surprises?</strong></h5>
+                            <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">
+                                Prepare to be amazed by the magic we&#x27;ve woven into our search engine, it&#x27;s not your average tool!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI3mCD {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            background-color: #ffffff;
+        }
+        
+        .cid-u4QjkI3mCD .mbr-fallback-image.disabled {
+            display: none;
+        }
+        
+        .cid-u4QjkI3mCD .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        
+        .cid-u4QjkI3mCD .row-reverse {
+            flex-direction: row-reverse;
+        }
+        
+        @media (max-width: 991px) {
+            .cid-u4QjkI3mCD .image-wrapper {
+                margin-bottom: 1rem;
+            }
+        }
+        
+        .cid-u4QjkI3mCD .row {
+            align-items: center;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        
+        @media (max-width: 991px) {
+            .cid-u4QjkI3mCD .image-wrapper {
+                padding: 1rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .cid-u4QjkI3mCD .text-wrapper {
+                padding: 0 2rem;
+            }
+        }
+        
+        .cid-u4QjkI3mCD .mbr-section-title {
+            color: #000000;
+        }
+        
+        .cid-u4QjkI3mCD .mbr-text,
+        .cid-u4QjkI3mCD .mbr-section-btn {
+            color: #000000;
+        }
+        
+        .cid-u4QjkI3mCD img {
+            width: 100%;
+            object-fit: cover;
+            height: 30rem;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI3mCD img {
+                height: 15rem;
+            }
+        }
+    </style>
+    <section class="features28 cid-u4QjkI3mCD" id="features-28-u4QjkI3mCD">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-12 col-lg">
+                    <div class="text-wrapper align-left">
+                        <h1 class="mbr-section-title mbr-fonts-style mb-4 display-2">
+                            <strong>Smart Search</strong>
+                        </h1>
+                        <p class="mbr-text align-left mbr-fonts-style mb-4 display-7">
+                            Experience the power of intelligent search algorithms that bring you the most relevant images instantly.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6 image-wrapper">
+                    <img class="w-100" src="{% static 'assets/images/luffy.jpg' %}">
+                </div>
+            </div>
+            <div class="row row-reverse justify-content-center">
+
+                <div class="col-12 col-md-12 col-lg">
+                    <div class="text-wrapper align-left">
+                        <h1 class="mbr-section-title mbr-fonts-style mb-4 display-2">
+                            <strong>Sleek Design</strong>
+                        </h1>
+                        <p class="mbr-text align-left mbr-fonts-style mb-4 display-7">
+                            Enjoy a visually stunning interface that makes searching for images a delightful experience.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6 image-wrapper">
+                    <img class="w-100" src="{% static 'assets/images/photo-1544894079-e81a9eb1da8b.jpeg' %}">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-12 col-lg">
+                    <div class="text-wrapper align-left">
+                        <h1 class="mbr-section-title mbr-fonts-style mb-4 display-2">
+                            <strong>One Click Download</strong>
+                        </h1>
+                        <p class="mbr-text align-left mbr-fonts-style mb-4 display-7">
+                            Instantly download any image that you want. Preview and Download with just one click!
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6 image-wrapper">
+                    <img class="w-100" src="{% static 'assets/images/photo-1611028086947-c405be3d94d6.jpeg' %}">
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI3VKN {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: #ffffff;
+        }
+        
+        .cid-u4QjkI3VKN .item:focus,
+        .cid-u4QjkI3VKN span:focus {
+            outline: none;
+        }
+        
+        .cid-u4QjkI3VKN .item {
+            cursor: pointer;
+        }
+        
+        .cid-u4QjkI3VKN .grid-container {
+            grid-row-gap: 2rem;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI3VKN .grid-container {
+                grid-row-gap: 1rem;
+            }
+        }
+        
+        .cid-u4QjkI3VKN .grid-container-1,
+        .cid-u4QjkI3VKN .grid-container-2,
+        .cid-u4QjkI3VKN .grid-container-3 {
+            gap: 0 2rem;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI3VKN .grid-container-1,
+            .cid-u4QjkI3VKN .grid-container-2,
+            .cid-u4QjkI3VKN .grid-container-3 {
+                gap: 0 1rem;
+            }
+        }
+        
+        .cid-u4QjkI3VKN .mbr-section-title {
+            color: #000000;
+        }
+        
+        .cid-u4QjkI3VKN .mbr-text,
+        .cid-u4QjkI3VKN .mbr-section-btn {
+            color: #000000;
+        }
+        
+        .cid-u4QjkI3VKN .content-head {
+            max-width: 800px;
+        }
+        
+        .cid-u4QjkI3VKN .container,
+        .cid-u4QjkI3VKN .container-fluid {
+            overflow: hidden;
+        }
+        
+        .cid-u4QjkI3VKN .grid-container {
+            display: grid;
+            transform: translate3d(-3rem, 0, 0);
+            width: 115vw;
+            grid-column-gap: 1rem;
+        }
+        
+        .cid-u4QjkI3VKN .grid-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .cid-u4QjkI3VKN .grid-item img {
+            min-width: 30vw;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI3VKN .grid-item img {
+                min-width: 35vw;
+            }
+        }
+        
+        .cid-u4QjkI3VKN .grid-container-1,
+        .cid-u4QjkI3VKN .grid-container-2,
+        .cid-u4QjkI3VKN .grid-container-3 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-columns: 1fr;
+            grid-auto-flow: column;
+        }
+        
+        .cid-u4QjkI3VKN .grid-container-1 {
+            align-items: flex-end;
+        }
+        
+        .cid-u4QjkI3VKN .grid-container-2 {
+            align-items: flex-start;
+        }
+    </style>
+    <section class="gallery07 cid-u4QjkI3VKN" id="gallery-16-u4QjkI3VKN">
+        <div class="container-fluid gallery-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-12 content-head">
+                    <div class="mbr-section-head mb-5">
+                        <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                            <strong>Image Gallery Showcase</strong>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-container">
+                <div class="grid-container-3" style="transform: translate3d(-200px, 0px, 0px);">
+                    <div class="grid-item">
+                        <img src="{% static 'assets/images/photo-1523461811963-7f1023caeddd.jpeg' %}">
+                    </div>
+                    <div class="grid-item">
+                        <img src="{% static 'assets/images/photo-1543200651-91fc6a469f99.jpeg' %}">
+                    </div>
+                    <div class="grid-item">
+                        <img src="{% static 'assets/images/photo-1610016302534-6f67f1c968d8.jpeg' %}">
+                    </div>
+                    <div class="grid-item">
+                        <img src="{% static 'assets/images/photo-1496285705189-c290050257f1.jpeg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI3PYs {
+            overflow: hidden;
+            background-image: url("{% static 'assets/images/photo-1592906209472-a36b1f3782ef.jpeg' %}");
+        }
+    </style>
+    <section class="image02 cid-u4QjkI3PYs mbr-fullscreen mbr-parallax-background" id="image-13-u4QjkI3PYs">
+        <div class="container">
+            <div class="row"></div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI3oMl {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: #ffffff;
+        }
+        
+        .cid-u4QjkI3oMl .item-subtitle {
+            line-height: 1.2;
+            color: #000000;
+        }
+        
+        .cid-u4QjkI3oMl img,
+        .cid-u4QjkI3oMl .item-img {
+            width: 100%;
+            height: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .cid-u4QjkI3oMl .item:focus,
+        .cid-u4QjkI3oMl span:focus {
+            outline: none;
+        }
+        
+        .cid-u4QjkI3oMl .item {
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI3oMl .item {
+                margin-bottom: 1rem;
+            }
+        }
+        
+        .cid-u4QjkI3oMl .item-wrapper {
+            position: relative;
+            border-radius: 4px;
+            height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        
+        .cid-u4QjkI3oMl .mbr-section-title {
+            color: #232323;
+        }
+        
+        .cid-u4QjkI3oMl .mbr-text,
+        .cid-u4QjkI3oMl .mbr-section-btn {
+            color: #232323;
+        }
+        
+        .cid-u4QjkI3oMl .item-title {
+            color: #232323;
+        }
+        
+        .cid-u4QjkI3oMl .content-head {
+            max-width: 800px;
+        }
+    </style>
+    <section class="features03 cid-u4QjkI3oMl" id="news-1-u4QjkI3oMl">
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-5">
+                <div class="col-12 content-head">
+                    <div class="mbr-section-head">
+                        <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                            <strong>Latest Buzz</strong>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="item features-image col-12 col-md-6 col-lg-3 active">
+                    <div class="item-wrapper">
+                        <div class="item-img mb-3">
+                            <img src="{% static 'assets/images/photo-1589287707312-213624549c88.jpeg' %}">
+                        </div>
+                        <div class="item-content align-left">
+                            <h6 class="item-subtitle mbr-fonts-style mb-3 display-5">
+                                <strong><a class="text-black fw-bold" href="https://www.google.com/search?q=breaking%20news%20in%20tech">Breaking News in Tech</a></strong>
+                            </h6>
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">February 20, 2024</p>
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">Stay ahead with the latest tech updates and trends. Dive into the world of innovation.</p>
+                            <div class="mbr-section-btn item-footer"><a href="./result/?search_string=new technology" class="btn item-btn btn-primary display-7">Explore</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item features-image col-12 col-md-6 col-lg-3">
+                    <div class="item-wrapper">
+                        <div class="item-img mb-3">
+                            <img src="{% static 'assets/images/photo-1531844806351-6f135a39b0a5.jpeg' %}" data-slide-to="1" data-bs-slide-to="1">
+                        </div>
+                        <div class="item-content align-left">
+                            <h6 class="item-subtitle mbr-fonts-style mb-3 display-5">
+                                <strong><a class="text-black fw-bold" href="https://www.google.com/search?q=innovation%20unleashed">Innovation Unleashed</a></strong>
+                            </h6>
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">February 20, 2024</p>
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">Discover how our search engine is reshaping the way you find images online.</p>
+                            <div class="mbr-section-btn item-footer"><a href="./result/?search_string=image search engine" class="btn item-btn btn-primary display-7">Explore</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item features-image col-12 col-md-6 col-lg-3">
+                    <div class="item-wrapper">
+                        <div class="item-img mb-3">
+                            <img src="{% static 'assets/images/photo-1620403724141-2b250fd48f63.jpeg' %}" data-slide-to="2" data-bs-slide-to="2">
+                        </div>
+                        <div class="item-content align-left">
+                            <h6 class="item-subtitle mbr-fonts-style mt-0 mb-3 display-5">
+                                <strong><a class="text-black fw-bold" href="https://www.google.com/search?q=tech titans collide">Tech Titans Collide</a></strong>
+                            </h6>
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">February 20, 2024</p>
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">Witness the clash of tech giants as we redefine the image search landscape.</p>
+                            <div class="mbr-section-btn item-footer"><a href="./result/?search_string=tech giants collide" class="btn item-btn btn-primary display-7">Explore</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item features-image col-12 col-md-6 col-lg-3">
+                    <div class="item-wrapper">
+                        <div class="item-img mb-3">
+                            <img src="{% static 'assets/images/photo-1613940779518-f55261b1023c.jpeg' %}" data-slide-to="3" data-bs-slide-to="3">
+                        </div>
+                        <div class="item-content align-left">
+                            <h6 class="item-subtitle mbr-fonts-style mt-0 mb-3 display-5">
+                                <strong><a class="text-black fw-bold" href="https://www.google.com/search?q=image search engine">Revolutionizing Search</a></strong>
+                            </h6>
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">February 20, 2024</p>
+                            <p class="mbr-text mbr-fonts-style mb-3 display-7">Join us on a journey to revolutionize image search and unlock a world of possibilities.</p>
+                            <div class="mbr-section-btn item-footer"><a href="./result/?search_string=image search engine" class="btn item-btn btn-primary display-7">Explore</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI3o5x {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: transparent;
+        }
+        
+        .cid-u4QjkI3o5x .mbr-fallback-image.disabled {
+            display: none;
+        }
+        
+        .cid-u4QjkI3o5x .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        
+        .cid-u4QjkI3o5x .card-wrapper {
+            background: #ffffff;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI3o5x .card-wrapper {
+                padding: 2rem 1.5rem;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991px) {
+            .cid-u4QjkI3o5x .card-wrapper {
+                padding: 2.25rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .cid-u4QjkI3o5x .card-wrapper {
+                padding: 4rem;
+            }
+        }
+        
+        .cid-u4QjkI3o5x .mbr-text,
+        .cid-u4QjkI3o5x .mbr-section-btn {
+            text-align: center;
+        }
+    </style>
+    <!--<section class="header14 cid-u4QjkI3o5x" id="call-to-action-10-u4QjkI3o5x">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="card col-12 col-md-12 col-lg-10">
+                    <div class="card-wrapper">
+                        <div class="card-box align-center">
+                            <h1 class="card-title mbr-fonts-style mb-4 display-1">
+                                <strong>Unleash Your Imagination</strong>
+                            </h1>
+                            <p class="mbr-text mbr-fonts-style mb-4 display-7">
+                                Explore the World Through Images
+                            </p>
+                            <div class="mbr-section-btn mt-4">
+                                <a class="btn btn-primary display-7" href="#">
+                                Start Searching Now
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <style>
+        .cid-u4QjkI4bim {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: transparent;
+        }
+        
+        .cid-u4QjkI4bim .mbr-fallback-image.disabled {
+            display: none;
+        }
+        
+        .cid-u4QjkI4bim .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        
+        .cid-u4QjkI4bim .card-wrapper {
+            background: #ffffff;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI4bim .card-wrapper {
+                padding: 2rem 1.5rem;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991px) {
+            .cid-u4QjkI4bim .card-wrapper {
+                padding: 2.25rem;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .cid-u4QjkI4bim .card-wrapper {
+                padding: 4rem;
+            }
+        }
+        
+        .cid-u4QjkI4bim .mbr-text,
+        .cid-u4QjkI4bim .mbr-section-btn {
+            text-align: left;
+        }
+        
+        .cid-u4QjkI4bim .img-wrapper img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50% !important;
+        }
+        
+        @media (min-width: 768px) and (max-width: 991px) {
+            .cid-u4QjkI4bim .img-wrapper img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cid-u4QjkI4bim .img-wrapper img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        .cid-u4QjkI4bim .img-wrapper {
+            display: flex;
+        }
+        
+        .cid-u4QjkI4bim .card-text {
+            text-align: center;
+            color: #000000;
+        }
+        
+        .cid-u4QjkI4bim .card-title {
+            text-align: center;
+            color: #000000;
+        }
+    </style>
+    <section class="people06 cid-u4QjkI4bim" id="testimonials-7-u4QjkI4bim">
+        <div class="container">
+            <div class="row">
+                <div class="card col-12 col-md-12 col-lg-8" style="width: 100%;">
+                    <div class="card-wrapper">
+                        <div class="card-box align-center">
+                            <p class="card-text mbr-fonts-style display-5">
+                                Mind-blowing search results! This team rocks!
+                            </p>
+                            <div class="flex_container">
+                                <div class="img-wrapper mt-3 justify-content-center">
+                                    <img src="{% static 'assets/images/me.jpg' %}" data-slide-to="0" data-bs-slide-to="0">
+                                </div>
+                                <p class="card-title mbr-fonts-style mt-3 display-7">
+                                    <strong>Trizan Koju</strong>
+                                </p>
+                            </div>
+                            <div class="flex_container">
+                                <div class="img-wrapper mt-3 justify-content-center">
+                                    <img src="{% static 'assets/images/prabal.jpeg' %}" data-slide-to="0" data-bs-slide-to="0">
+                                </div>
+                                <p class="card-title mbr-fonts-style mt-3 display-7">
+                                    <strong>Prabal Yagoju</strong>
+                                </p>
+                            </div>
+                            <div class="flex_container">
+                                <div class="img-wrapper mt-3 justify-content-center">
+                                    <img src="{% static 'assets/images/Purusottham.jpg' %}" data-slide-to="0" data-bs-slide-to="0">
+                                </div>
+                                <p class="card-title mbr-fonts-style mt-3 display-7">
+                                    <strong>Purushottam Karki</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .card-box{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .card-box .card-text{
+            flex-basis: 100%;
+        }
+        .cid-u4QjkI68We {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: #ffffff;
+        }
+        
+        .cid-u4QjkI68We .mbr-fallback-image.disabled {
+            display: none;
+        }
+        
+        .cid-u4QjkI68We .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        
+        .cid-u4QjkI68We .title .num {
+            width: 100%;
+            display: block;
+        }
+        
+        .cid-u4QjkI68We .title .card-title {
+            z-index: 1;
+        }
+        
+        .cid-u4QjkI68We .num {
+            color: var(--primary-color, #9fe870);
+            text-align: center;
+        }
+        
+        .cid-u4QjkI68We .item-mb {
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI68We .item-mb {
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI68We * {
+                text-align: center !important;
+            }
+            .cid-u4QjkI68We .content-column {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        .cid-u4QjkI68We .content-head {
+            max-width: 800px;
+        }
+        
+        .cid-u4QjkI68We .card-text {
+            text-align: center;
+        }
+        
+        .cid-u4QjkI68We .card-title,
+        .cid-u4QjkI68We .card-img {
+            text-align: center;
+        }
+    </style>
+    <section class="features023 cid-u4QjkI68We" id="metrics-1-u4QjkI68We">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 content-head">
+                    <div class="card-wrapper mb-5">
+                        <div class="card-box align-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row content-row">
+                <div class="item features-without-image col-12 col-md-6 col-lg-4 item-mb">
+                    <div class="item-wrapper">
+                        <div class="title mb-3">
+                            <span class="num mbr-fonts-style display-1"><strong>5K+</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            <strong>Images Scraped</strong>
+                        </h4>
+                    </div>
+                </div>
+                <div class="item features-without-image col-12 col-md-6 col-lg-4 item-mb">
+                    <div class="item-wrapper">
+                        <div class="title mb-3">
+                            <span class="num mbr-fonts-style display-1"><strong>80%</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            <strong>Search Accuracy</strong>
+                        </h4>
+                    </div>
+                </div>
+                <div class="item features-without-image col-12 col-md-6 col-lg-4 item-mb">
+                    <div class="item-wrapper">
+                        <div class="title mb-3">
+                            <span class="num mbr-fonts-style display-1"><strong>24/7</strong></span>
+                        </div>
+                        <h4 class="card-title mbr-fonts-style display-5">
+                            <strong>Search Availability</strong>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI61TD .mbr-fallback-image.disabled {
+            display: none;
+        }
+        
+        .cid-u4QjkI61TD .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            background: #000000;
+        }
+    </style>
+    <!--<section class="header18 cid-u4QjkI61TD mbr-fullscreen" data-bg-video="https://www.youtube.com/embed/zob-2dpRtH0?autoplay&#x3D;1&amp;loop&#x3D;1&amp;playlist&#x3D;zob-2dpRtH0&amp;t&#x3D;20&amp;mute&#x3D;1&amp;playsinline&#x3D;1&amp;controls&#x3D;0&amp;showinfo&#x3D;0&amp;autohide&#x3D;1&amp;allowfullscreen&#x3D;true&amp;mode&#x3D;transparent"
+        id="video-5-u4QjkI61TD">
+        <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);"></div>
+        <div class="container-fluid">
+            <div class="row">
+            </div>
+        </div>
+    </section>-->
+    <style>
+        .cid-u4QjkI6get {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: #ffffff;
+        }
+        
+        .cid-u4QjkI6get .item:focus,
+        .cid-u4QjkI6get span:focus {
+            outline: none;
+        }
+        
+        .cid-u4QjkI6get .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+            overflow: hidden;
+        }
+        
+        .cid-u4QjkI6get .content-head {
+            max-width: 800px;
+        }
+        
+        .cid-u4QjkI6get .item {
+            color: #232323;
+            min-height: 90px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .cid-u4QjkI6get .item {
+                min-height: 45px;
+            }
+        }
+    </style>
+    <section class="gallery10 cid-u4QjkI6get" id="features-61-u4QjkI6get">
+        <div class="container-fluid">
+            <div class="loop-container">
+                <div class="item display-1" data-linewords="
+          Fast *
+          Accurate *
+          Innovative *
+          Limitless *
+          Exciting *
+          Unique *" data-direction="-1" data-speed="0.05">
+                </div>
+                <div class="item display-1" data-linewords="
+          Fast *
+          Accurate *
+          Innovative *
+          Limitless *
+          Exciting *
+          Unique *" data-direction="-1" data-speed="0.05">
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI61I8 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: var(--dominant-color, #260a30);
+        }
+        
+        .cid-u4QjkI61I8 input {
+            padding: 1.2rem 1.5rem;
+            border: none !important;
+            height: 100%;
+        }
+        
+        .cid-u4QjkI61I8 input:hover {
+            border: none !important;
+        }
+        
+        .cid-u4QjkI61I8 .btn {
+            height: 100%;
+            margin: auto;
+        }
+        
+        @media (min-width: 992px) {
+            .cid-u4QjkI61I8 .text-wrapper {
+                padding: 0 2rem;
+            }
+        }
+        
+        .cid-u4QjkI61I8 .row {
+            justify-content: center;
+        }
+        
+        .cid-u4QjkI61I8 .mbr-section-btn {
+            display: flex;
+            margin-bottom: 1.2rem;
+            width: fit-content;
+        }
+        
+        @media (min-width: 768px) {
+            .cid-u4QjkI61I8 .mbr-section-btn {
+                margin-left: initial;
+            }
+        }
+        
+        .cid-u4QjkI61I8 .mbr-section-btn .btn {
+            width: auto;
+        }
+        
+        @media (max-width: 991px) {
+            .cid-u4QjkI61I8 .image-wrapper {
+                margin-bottom: 2rem;
+            }
+            .cid-u4QjkI61I8 .content-wrapper {
+                flex-direction: column-reverse;
+            }
+        }
+        
+        .cid-u4QjkI61I8 .justify-content-center {
+            align-items: center;
+        }
+        
+        .cid-u4QjkI61I8 .mbr-section-title {
+            text-align: center;
+            color: var(--dominant-text, #ffd7ef);
+        }
+    </style>
+    <section class="header2 cid-u4QjkI61I8" id="subscription-form-1-u4QjkI61I8">
+        <div class="container">
+            <div class="row content-wrapper justify-content-center">
+                <div class="col-lg-8 mbr-form">
+                    <div class="">
+                        <h1 class="mbr-section-title mbr-fonts-style mb-5 display-1">
+                            <strong>Unleash Your Imagination with Us!</strong>
+                        </h1>
+                    </div>
+                    <div class="text-wrapper align-left" data-form-type="formoid">
+                        <form action="./result/" method="GET" id="home" class="mbr-form form-with-styler" data-form-title="Form Name">
+                            </div>
+                            <div class="dragArea row">
+                                <div data-for="email" class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    {{ input_string}}
+                                    </div>
+                                <div class="col-auto mbr-section-btn"><button type="submit" class="w-100 btn btn-primary display-7">Search Now</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI6DDc {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: #ffffff;
+        }
+        
+        .cid-u4QjkI6DDc .mbr-fallback-image.disabled {
+            display: none;
+        }
+        
+        .cid-u4QjkI6DDc .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        
+        .cid-u4QjkI6DDc .bg-facebook {
+            background: #1778f2;
+            color: #ffffff;
+        }
+        
+        .cid-u4QjkI6DDc .bg-facebook:hover {
+            background: #0b60cb;
+        }
+        
+        .cid-u4QjkI6DDc .bg-twitter {
+            background: #1da1f2;
+            color: #ffffff;
+        }
+        
+        .cid-u4QjkI6DDc .bg-twitter:hover {
+            background: #0c85d0;
+        }
+        
+        .cid-u4QjkI6DDc .bg-instagram {
+            background: #f00075;
+            color: #ffffff;
+        }
+        
+        .cid-u4QjkI6DDc .bg-instagram:hover {
+            background: #bd005c;
+        }
+        
+        .cid-u4QjkI6DDc .bg-tiktok {
+            background: #000000;
+            color: #ffffff;
+        }
+        
+        .cid-u4QjkI6DDc .bg-tiktok:hover {
+            background: #000000;
+        }
+        
+        .cid-u4QjkI6DDc .iconfont-wrapper {
+            display: inline-block;
+            font-size: 32px;
+            border-radius: 50%;
+            width: 72px;
+            height: 72px;
+            line-height: 72px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .cid-u4QjkI6DDc [class^="socicon-"]:before,
+        .cid-u4QjkI6DDc [class*=" socicon-"]:before {
+            line-height: 55px;
+            padding: .6rem;
+        }
+    </style>
+    <section class="social4 cid-u4QjkI6DDc" id="follow-us-1-u4QjkI6DDc">
+        <div class="container">
+            <div class="media-container-row">
+                <div class="col-12">
+                    <h3 class="mbr-section-title align-center mb-5 mbr-fonts-style display-2">
+                        <strong>Join Our Wild Ride</strong>
+                    </h3>
+                    <div class="social-list align-center">
+                        <a class="iconfont-wrapper bg-facebook m-2 " target="_blank" href="https://www.facebook.com/trizan.cozzu/">
+                            <span class="socicon-facebook socicon"></span>
+                        </a>
+                        <a class="iconfont-wrapper bg-twitter m-2" href="https://twitter.com/" target="_blank">
+                            <span class="socicon-twitter socicon"></span>
+                        </a>
+                        <a class="iconfont-wrapper bg-instagram m-2" href="https://www.instagram.com/" target="_blank">
+                            <span class="socicon-instagram socicon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI6o17 {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: transparent;
+        }
+        
+        .cid-u4QjkI6o17 .mbr-overlay {
+            background-color: #ffffff;
+            opacity: 0.4;
+        }
+        
+        .cid-u4QjkI6o17 form .mbr-section-btn {
+            text-align: center;
+            width: 100%;
+        }
+        
+        .cid-u4QjkI6o17 form .mbr-section-btn .btn {
+            display: inline-flex;
+        }
+        
+        @media (max-width: 991px) {
+            .cid-u4QjkI6o17 form .mbr-section-btn .btn {
+                width: 100%;
+            }
+        }
+        
+        .cid-u4QjkI6o17 .content-head {
+            max-width: 800px;
+        }
+    </style>
+    <section class="form5 cid-u4QjkI6o17" id="contact-form-3-u4QjkI6o17">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 content-head">
+                    <div class="mbr-section-head mb-5">
+                        <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                            <strong>Sign up and Access More</strong>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                    <form action="." method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="">
+                        <div class="row">
+                            <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+                            <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                                Oops...! some problem!
+                            </div>
+                        </div>
+                        <div class="dragArea row">
+                            <div class="col-md col-sm-12 form-group mb-3" data-for="name">
+                                <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name-form02-0">
+                            </div>
+                            <div class="col-md col-sm-12 form-group mb-3" data-for="email">
+                                <input type="email" name="email" placeholder="Email" data-form-field="email" class="form-control" value="" id="email-form02-0">
+                            </div>
+                            <div class="col-12 form-group mb-3" data-for="url">
+                                <input type="number" name="number" placeholder="Phone" data-form-field="url" class="form-control" value="" id="url-form5-0">
+                            </div>
+                            <div class="col-12 form-group mb-3" data-for="textarea">
+                                <input type="password" name="passeord" placeholder="Password" data-form-field="password" class="form-control" id="textarea-form02-0"/>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn btn-primary display-7">Sign up</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI6T9B {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: transparent;
+        }
+        
+        .cid-u4QjkI6T9B .mbr-fallback-image.disabled {
+            display: none;
+        }
+        
+        .cid-u4QjkI6T9B .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+        }
+        
+        .cid-u4QjkI6T9B .mbr-text {
+            color: #000000;
+        }
+        
+        .cid-u4QjkI6T9B .mbr-section-subtitle {
+            color: #000000;
+            text-align: left;
+        }
+        
+        .cid-u4QjkI6T9B .main-button {
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 767px) {
+            .cid-u4QjkI6T9B .main-button {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        .cid-u4QjkI6T9B .mbr-section-subtitle,
+        .cid-u4QjkI6T9B .main-button {
+            color: #000000;
+        }
+        
+        .cid-u4QjkI6T9B .google-map {
+            height: 30rem;
+            position: relative;
+            border-radius: 2rem;
+        }
+        
+        .cid-u4QjkI6T9B .google-map iframe {
+            height: 100%;
+            width: 100%;
+            border-radius: 2rem;
+        }
+        
+        .cid-u4QjkI6T9B .google-map [data-state-details] {
+            color: #6b6763;
+            height: 1.5em;
+            margin-top: -0.75em;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            width: 100%;
+        }
+        
+        .cid-u4QjkI6T9B .google-map[data-state] {
+            background: #e9e5dc;
+        }
+        
+        .cid-u4QjkI6T9B .google-map[data-state="loading"] [data-state-details] {
+            display: none;
+        }
+    </style>
+
+    <section class="contacts03 cid-u4QjkI6T9B" id="contacts-11-u4QjkI6T9B">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="col-12 col-md-12">
+                        <h5 class="mbr-section-title mbr-fonts-style mt-0 mb-4 display-2">
+                            <strong>Get in Touch</strong>
+                        </h5>
+                        <p class="mbr-section-subtitle mbr-fonts-style mt-0 mb-4 display-7">
+                            Call: <a href="">9813624500</a>
+                            <br>Email: trijankoju11@gmail.com
+                            <br>Address: Nepal
+                            <br>Working Hours: Mon-Fri: 9am-6pm</p>
+                    </div>
+                </div>
+                <div class="col-lg-8 side-features">
+                    <div class="google-map">
+                        <iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key&#x3D;AIzaSyCt1265A4qvZy9HKUeA8J15AOC4SrCyZe4&amp;q&#x3D;%20Nepal" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .cid-u4QjkI6YCR {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            background-color: #000000;
+        }
+        
+        .cid-u4QjkI6YCR .social-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .cid-u4QjkI6YCR .social-row .soc-item {
+            margin: 8px;
+        }
+        
+        .cid-u4QjkI6YCR .social-row .soc-item a:hover .mbr-iconfont,
+        .cid-u4QjkI6YCR .social-row .soc-item a:focus .mbr-iconfont {
+            background-color: #ffffff;
+        }
+        
+        .cid-u4QjkI6YCR .social-row .soc-item a .mbr-iconfont {
+            width: 72px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100%;
+            font-size: 32px;
+            background-color: #edefeb;
+            color: #000000;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .cid-u4QjkI6YCR .row-links {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .cid-u4QjkI6YCR .header-menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0;
+            margin-bottom: 0;
+        }
+        
+        .cid-u4QjkI6YCR .header-menu li {
+            padding: 0 1rem 1rem 1rem;
+        }
+        
+        .cid-u4QjkI6YCR .header-menu li p {
+            margin: 0;
+        }
+        
+        .cid-u4QjkI6YCR .copyright {
+            margin-bottom: 0;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .cid-u4QjkI6YCR .mbr-section-title {
+            color: #ffffff;
+        }
+    </style>
+    <section class="footer3 cid-u4QjkI6YCR" once="footers" id="footer-6-u4QjkI6YCR">
+        <div class="container">
+            <div class="row">
+                <div class="row-links">
+                    <ul class="header-menu">
+                        <li class="header-menu-item mbr-fonts-style display-5">
+                            <a href="#" class="text-white">Home</a>
+                        </li>
+                        <li class="header-menu-item mbr-fonts-style display-5">
+                            <a href="#testimonials-7-u4QjkI4bim" class="text-white">About</a>
+                        </li>
+                        <li class="header-menu-item mbr-fonts-style display-5">
+                            <a href="#contacts-11-u4QjkI6T9B" class="text-white">Contact</a>
+                        </li>
+                        <li class="header-menu-item mbr-fonts-style display-5">
+                            <a href="#" class="text-white">Explore</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 mt-4">
+                    <p class="mbr-fonts-style copyright display-7">
+                        © 2024 Wild Search. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock main_content_for_display %}
+    <script src="{% static 'assets/parallax/jarallax.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/dropdown/js/navbar-dropdown.js' %}"></script>
+    <script src="{% static 'assets/scrollgallery/scroll-gallery.js' %}"></script>
+    <script src="{% static 'assets/smoothscroll/smooth-scroll.js' %}"></script>
+    <script src="{% static 'assets/ytplayer/index.js' %}"></script>
+    <script src="{% static 'assets/theme/js/script.js' %}"></script>
+    <script src="{% static 'assets/formoid/formoid.min.js' %}"></script>
+
+    <script>
+        (function() {
+            var animationInput = document.createElement('input');
+            animationInput.setAttribute('name', 'animation');
+            animationInput.setAttribute('type', 'hidden');
+            document.body.append(animationInput);
+        })();
+    </script>
+</body>
+
+</html>

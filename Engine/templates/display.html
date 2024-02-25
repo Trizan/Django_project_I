@@ -1,0 +1,161 @@
+{% extends 'index.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% block linking_part %}
+    <title>{{ title|capfirst }}</title>
+    <link rel="stylesheet" href="{% static 'text.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" href="{% static 'display.css' %}?{% now 'U' %}">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Love+Light&display=swap" rel="stylesheet">
+    {% endblock linking_part%}
+</head>
+<body>    
+        {% block explore_btn_replace_woth_bar %}
+        <form id="searchForm" action="." method="GET">
+            {{ input_string }}
+            <input type="submit" id="submit_form">
+        </form>
+        {% endblock explore_btn_replace_woth_bar %}
+        
+{% block main_content_for_display %}
+
+
+    <div class="loader">
+        <svg viewBox="0 0 1000 600" id="loading_animation">
+            <text x="50%" y="50%" dx="-0.46em" dy="-0.18em" text-anchor="middle" class="text-body T">T</text>
+            <text x="50%" y="50%" dx="0.2em" text-anchor="middle" class="text-body k">K</text>
+            <text x="50%" y="50%" dx="0.3em" text-anchor="middle" class="text-body P">P</text>
+        </svg>
+    </div>
+
+    <div class="content" id="content">
+        <div id="imageContainer" class="grid-container">
+            {% for src in source %}
+                <div class="grid-box">
+                    <form action="./download-image/" method="GET">
+                        <a> <img src="{{ src }}" alt=""></a>
+                        <div class="additional_feature">
+                            <!--img src="{{src}}" alt="-->
+                            <a href="{{src}}" target="_blank">View Image</a>
+                            <button type="submit" class="download_btn" name="url" value="{{src}}">Download</button>
+                        </div>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script id="download_feature">
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadButtons = document.querySelectorAll('.download_btn');
+            downloadButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const imageURL = this.getAttribute('name');
+                    downloadImage(imageURL);
+                });
+            });
+    
+            function downloadImage(url) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', '/download-image?url=' + encodeURIComponent(url), true);
+                xhr.responseType = 'blob';
+    
+                xhr.onload = function() {
+                    if (this.status === 200) {
+                        const blob = this.response;
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = url.split('/').pop();
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                    }
+                };
+    
+                xhr.send();
+            }
+        });
+    </script>
+    <script id="prompt_onclick">
+        document.addEventListener('DOMContentLoaded', function() {
+            const gridBoxes = document.querySelectorAll('.grid-box');
+            const gridContainer = document.querySelector('.grid-container');
+            let currentShowFeature = null;
+            let currentClickedBox = null;
+        
+            gridBoxes.forEach(function(gridBox) {
+                const image = gridBox.querySelector('img');
+                const additionalFeature = gridBox.querySelector('.additional_feature');
+        
+                image.addEventListener('click', function(event) {
+                    event.stopPropagation();
+        
+                    // If there's a previously clicked box, remove its 'clicked' class
+                    if (currentClickedBox && currentClickedBox !== gridBox) {
+                        currentClickedBox.classList.remove('clicked');
+                    }
+        
+                    // If there's a previously shown feature, hide it
+                    if (currentShowFeature && currentShowFeature !== additionalFeature) {
+                        currentShowFeature.classList.remove('show');
+                    }
+        
+                    // Toggle 'show' class for the additional feature of the clicked image
+                    additionalFeature.classList.toggle('show');
+                    currentShowFeature = additionalFeature;
+        
+                    // Add 'clicked' class to the grid-box
+                    gridBox.classList.add('clicked');
+                    currentClickedBox = gridBox;
+        
+                    // Add class to grid-container
+                    gridContainer.classList.add('active');
+                });
+            });
+        
+            // Add event listener to the document body to handle clicks outside grid boxes
+            document.body.addEventListener('click', function(event) {
+                const target = event.target;
+        
+                // If the click target is not inside any grid box, remove the active class
+                if (!isInsideGridBox(target)) {
+                    gridContainer.classList.remove('active');
+        
+                    gridBoxes.forEach(function(box) {
+                        const additionalFeature = box.querySelector('.additional_feature');
+                        if (additionalFeature) {
+                            additionalFeature.classList.remove('show');
+                        }
+                        box.classList.remove('clicked');
+                    });
+        
+                    currentShowFeature = null;
+                    currentClickedBox = null;
+                }
+            });
+        
+            // Helper function to check if the element or its parents are grid boxes
+            function isInsideGridBox(element) {
+                while (element !== document.body) {
+                    if (element.classList.contains('grid-box')) {
+                        return true;
+                    }
+                    element = element.parentNode;
+                }
+                return false;
+            }
+        });
+        
+    </script>
+    
+{% endblock main_content_for_display %}
+</body>
+</html>

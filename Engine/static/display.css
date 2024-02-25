@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: visible;
+}
+
+@keyframes scroll_permission {
+    0% {
+        height: 0;
+    }
+    99.99999% {
+        height: 0;
+    }
+    100% {
+        height: auto;
+    }
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #FFC700;
+}
+
+.content form {
+    transform-origin: center;
+    animation: 0.5s 11s linear both animation_for_search_bar;
+}
+
+#imageContainer {
+    animation: 3s 11s ease-in both display_animation_for_content;
+    transform-origin: center;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.loader {
+    animation: 1s 10s linear both display_animation_for_loader;
+    transform-origin: center;
+}
+
+@keyframes display_animation_for_content {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+        height: 0;
+    }
+    40% {
+        opacity: 0;
+        height: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+        height: auto;
+    }
+}
+
+@keyframes display_animation_for_loader {
+    from {
+        transform: rotate3D(0, 0, 0, 90deg);
+        visibility: visible;
+    }
+    to {
+        transform: rotate3D(1, 1, 0, 90deg);
+        visibility: hidden;
+    }
+}
+
+@keyframes animation_for_search_bar {
+    0% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+.grid-container {
+    columns: 4;
+    column-gap: 2vw;
+    margin: auto 2vw;
+}
+
+.grid-box {
+    width: 100%;
+    break-inside: avoid;
+    box-sizing: border-box;
+    border-radius: 1vh;
+}
+
+
+.grid-box a img {
+    position: relative;
+    margin: 1vh auto;
+    box-sizing: border-box;
+    max-width: 100%;
+    border-radius: 1vh;
+    transform-origin: center;
+    transform: scale(1);
+    transition: transform 0.5s ease, width 0.5s linear;
+    object-fit: contain;
+    z-index: 1;
+}
+
+.grid-box a img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 850px) {
+    .grid-container {
+        columns: 2;
+    }
+}
+
+@media (max-width: 400px) {
+    .grid-container {
+        columns: 1;
+    }
+}
+
+#searchForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    z-index: 5;
+}
+
+#searchForm #input_field {
+    height: clamp(9%, 12%, 12%);
+    width: 45vw;
+    font-size: 1rem;
+    padding: clamp(0.2em, 0.4em, 0.6em);
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    box-sizing: border-box;
+    border: 2px solid #F9C74F;
+    outline: none;
+    margin: 1rem 0;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+#email-header02-0 {
+    border: 1px solid #F9C74F !important;
+}
+
+#searchForm #submit_form {
+    display: none;
+}
+
+#searchForm label {
+    height: clamp(1.6em, 2.3em, 3.3em);
+    margin: 1rem 0;
+    font-size: 1rem;
+    padding: clamp(0.2em, 0.4em, 0.6em);
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+label img {
+    height: 100%;
+}
+
+.additional_feature {
+    display: none;
+    position: relative;
+    transition: all 0.5s linear;
+}
+
+.additional_feature.show {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    z-index: 6;
+}
+
+.additional_feature.show img {
+    width: min(250px, 100%);
+    z-index: 7;
+}
+
+.additional_feature.show a {
+    text-decoration: none;
+    color: orangered;
+    font-weight: 900;
+    max-width: 50%;
+    background-color: #cccccc17;
+    z-index: 7;
+}
+
+.additional_feature.show button {
+    padding: 0.8rem;
+    outline: none;
+    border-radius: 1rem;
+    border: none;
+    background-color: #c50e0e;
+    color: white;
+    margin: 1rem;
+    z-index: 7;
+}
+
+.content {
+    position: absolute;
+}
+
+.grid-container {
+    margin-top: 20vh;
+}
+
+html {
+    background-color: #f8eee5;
+}
+

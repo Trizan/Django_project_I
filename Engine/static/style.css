@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.loader {
+    z-index: 10;
+    position: absolute;
+    background-color: white;
+    background-size: cover;
+    opacity: 1;
+    animation: 1s 10s linear forwards loader_time;
+}
+
+@keyframes loader_time {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+body {
+    position: relative;
+    background-color: rgb(27, 23, 23);
+    height: 100vh;
+    background-image: url(bg1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+    animation: 20s 2s linear both alternate infinite change_bg;
+}
+
+@keyframes change_bg {
+    0%,
+    25% {
+        background-image: url(bg1.jpg);
+    }
+    50%,
+    100% {
+        background-image: url(bg2.jpg);
+    }
+}
+
+.upper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.logo {
+    flex-basis: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0.5;
+}
+
+.logo img {
+    width: max(50%, 6rem);
+    height: 50%;
+}
+
+nav {
+    flex-basis: 80%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+}
+
+nav input {
+    position: absolute;
+    display: none;
+}
+
+#about_box:checked~.identifier>.icon {
+    background: url(about.png);
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#about_box:checked~.about {
+    color: tomato;
+}
+
+#home_box:checked~.identifier>.icon {
+    background: url(home.png);
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#home_box:checked~.home {
+    color: tomato;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    margin: .5em;
+    padding: 1em;
+}
+
+nav .identifier {
+    flex-basis: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.596) 50%, transparent 65%, transparent 100%);
+}
+
+.identifier .icon {
+    width: max(4rem, 5vw);
+    height: 50%;
+    border: 1px solid springgreen;
+    background: url(home.png);
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.identifier .icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20vw;
+    width: 20vw;
+    border: 1px solid springgreen;
+    z-index: -2;
+    animation: 1.5s 11s linear both alternate infinite extend_before;
+}
+
+.identifier .icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -20vw;
+    width: 20vw;
+    border: 1px solid springgreen;
+    z-index: -2;
+    animation: 1.5s 11s linear both alternate infinite extend_after;
+}
+
+@keyframes extend_after {
+    from {
+        width: 0;
+        right: 0;
+    }
+    to {
+        width: 20vw;
+        right: -20vw;
+    }
+}
+
+@keyframes extend_before {
+    from {
+        width: 0;
+        left: 0;
+    }
+    to {
+        width: 20vw;
+        left: -20vw;
+    }
+}
+
+form {
+    flex-basis: 100%;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+form input {
+    height: clamp(9%, 12%, 12%);
+    width: 50vw;
+    padding: clamp(0.2em, 0.5em, 0.6em);
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+    font-size: 1.5em;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+form label {
+    background-color: white;
+    padding: clamp(0.2em, 0.5em, 0.6em);
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    box-sizing: border-box;
+    height: clamp(9%, 12%, 12%);
+}
+
+form label img {
+    height: 100%;
+}
+
+form #submit_form {
+    display: none;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+h1 {
+    color: White;
+    position: relative;
+    top: -25vh;
+}
+
+.first {
+    color: #FFC700;
+    font-size: 4rem;
+    display: block;
+    letter-spacing: -0.1rem;
+}
+
+.second {
+    color: #fdd543;
+    font-weight: 2rem;
+    font-size: 3rem;
+}

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" href="{% static 'text.css' %}?{% now 'U' %}">
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Love+Light&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loader">
+        <svg viewBox="0 0 1000 600" id="loading_animation">
+            <text x="50%" y="50%" dx="-0.46em" dy="-0.18em" text-anchor="middle" class="text-body T">T</text>
+            <text x="50%" y="50%" dx="0.2em" text-anchor="middle" class="text-body k">K</text>
+            <text x="50%" y="50%" dx="0.3em" text-anchor="middle" class="text-body P">P</text>
+        </svg>
+    </div>
+    <main>
+        <section class="upper">
+            <div class="logo">
+                <img src="{% static 'logo.png' %}" alt="Logo">
+            </div>
+            <nav>
+                <input type="radio" id='about_box' name="check">
+                <a href="#About" class="about"><span><label for="about_box">About</label></span></a>
+                
+                <input type="radio" id='home_box' name="check" checked>
+                <a href="#home" class="home"><span><label for="home_box">Home</label></span></a>
+                
+                <div class="identifier">
+                    <div class="icon"></div>
+                </div>
+            </nav>
+            <form action="./result/" method="GET" id="home">
+                <label for="submit_form"><img src="{% static 'search.png'%}" alt=""></label>
+                {{ input_string}}
+                <input type="submit" id="submit_form">
+            </form>
+            <div class="text">
+                <h1><span class="first">Explore</span> The World With <span class="second">Images</span></h1>
+            </div>
+        </section>
+        <section id="About" class="lower"></section>
+    </main>
+</body>
+</html>
